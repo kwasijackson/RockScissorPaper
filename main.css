@@ -1,0 +1,151 @@
+body{
+    text-align:center;
+  }
+  h1{
+    color:blue;
+    
+  }
+  
+  #game{
+    display:flex;
+    justify-content:center;
+    align-items:baseline;
+    gap:4rem;
+    font-size:20px;
+  }
+  
+  #your-choice, #comp-choice{
+    width:6rem;
+    height:6rem;
+    border:1px solid #999;
+    border-radius:3rem;
+    font-size:4rem;
+    line-height:7rem;
+  }
+  
+  label{
+    font-size:2rem;
+  }
+  #rock-rock:checked ~ #game #your-choice::before,
+  #rock-paper:checked ~ #game #your-choice::before,
+  #rock-scissors:checked ~ #game #your-choice::before{
+    content:"✊";
+  }
+  
+  #paper-rock:checked ~ #game #your-choice::before, 
+  #paper-paper:checked ~ #game #your-choice::before,
+  #paper-scissors:checked ~ #game #your-choice::before{
+    content:"👋";
+  }
+  
+  #scissors-rock:checked ~ #game #your-choice::before,
+  #scissors-paper:checked ~ #game #your-choice::before,
+  #scissors-scissors:checked ~ #game #your-choice::before{
+    content:"✌️";
+  }
+  
+  #rock-rock:checked ~ #game #comp-choice::before,
+  #paper-rock:checked ~ #game #comp-choice::before,
+  #scissors-rock:checked ~ #game #comp-choice::before{
+    content:"✊";
+  }
+  
+  #rock-paper:checked ~ #game #comp-choice::before, 
+  #paper-paper:checked ~ #game #comp-choice::before,
+  #scissors-paper:checked ~ #game #comp-choice::before{
+    content:"👋";
+  }
+  
+  #rock-scissors:checked ~ #game #comp-choice::before,
+  #paper-scissors:checked ~ #game #comp-choice::before,
+  #scissors-scissors:checked ~ #game #comp-choice::before{
+    content:"✌️";
+  }
+
+  #choices{
+    display: flex;
+    justify-content: center;
+    gap:1rem;
+   
+  }
+  
+  #choices > div{
+    position:relative;
+    width:3rem;
+    height:3rem;
+    border: 1.5px solid #999;
+    border-radius:1rem;
+    line-height:3.5rem;
+
+  }
+
+  label{
+    position: absolute;
+    inset:0;
+    animation: loop 0.3s infinite;
+  }
+
+  label:nth-of-type(1){
+    animation-delay: 0s;
+  }
+
+  label:nth-of-type(2){
+    animation-delay: 0.1s;
+  }
+
+  label:nth-of-type(3){
+    animation-delay: 0.2s;
+  }
+
+  button{
+    background-color: #4456ff;
+    color: white;
+    border: 0;
+    padding: 10px 16px;
+    border-radius: 5px;
+    display: none;
+    text-align: center;
+    margin: 2rem auto 0;
+    cursor: pointer;
+  }
+
+  #result {
+    background-color: #efefef;
+    padding: 1rem;
+    margin-top: 2rem;
+    display: none;
+  }
+
+  input[type="radio"]:checked ~ button,
+  input[type="radio"]:checked ~ #result{
+    display: block;
+  }
+
+  @keyframes loop{
+    from {
+        z-index: 1;
+    }
+    to {
+        z-index: 3;
+    }
+  }
+  #rock-rock:checked ~ #result::before,
+  #scissors-scissors:checked ~ #result::before,
+  #paper-paper:checked ~ #result::before{
+    content:"It's a tie 😉!"
+  }
+  
+  #paper-rock:checked ~ #result::before,
+  #scissors-paper:checked ~ #result::before,
+  #rock-scissors:checked ~ #result::before{
+    content:"You have won! 😀"
+  }
+  
+  #rock-paper:checked ~ #result::before,
+  #paper-scissors:checked ~ #result::before,
+  #scissors-rock:checked ~ #result::before{
+    content:"You have Lost😞 !"
+  }
+  input[type="radio"]{
+    display:none;
+  }
